@@ -81,3 +81,26 @@ const menu = [
   },
 ];
 // get parent element
+const sectionCenter = document.querySelector('.section-center');
+const btnContainer = document.querySelector('.btn-container');
+window.addEventListener('DOMContentLoaded', ()=> {
+  displayMenuItems(menu);
+});
+
+function displayMenuItems(menuItems) {
+  let displayMenu = menuItems.map((items)=> {
+    return `<article class="menu-item">
+          <img src="${items.img}" alt="${items.title}" class="photo" />
+          <div class="item-info">
+            <header>
+              <h4>${items.title}</h4>
+              <h4 class="price">${items.price}</h4>
+            </header>
+            <p class="item-text">
+              ${items.desc}
+            </p>
+          </div>
+        </article>`
+  }).join('');
+  sectionCenter.innerHTML = displayMenu;
+};

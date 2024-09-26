@@ -114,5 +114,11 @@ function showDisplayBtns() {
     };
     return values;
   },['all']);
-  console.log(categories);
-}
+
+  // replace the btns
+  const menuCategory = categories.map((category)=> {
+    return `<button type="button" class="filter-btn" data-id="${category}">${category}</button>`
+  }).join('');
+  btnContainer.innerHTML = menuCategory;
+  
+};

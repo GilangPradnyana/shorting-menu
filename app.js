@@ -120,5 +120,22 @@ function showDisplayBtns() {
     return `<button type="button" class="filter-btn" data-id="${category}">${category}</button>`
   }).join('');
   btnContainer.innerHTML = menuCategory;
-  
+
+  // shorting the menu
+  const filterBtns = document.querySelectorAll('.filter-btn');
+  filterBtns.forEach((btns)=> {
+    btns.addEventListener('click', (e)=> {
+      const category = e.currentTarget.dataset.id;
+      const menuCategory = menu.filter((menuItems)=> {
+        if(menuItems.category === category) {
+          return menuItems;
+        };
+      });
+      if(category === 'all'){
+        displayMenuItems(menu);
+      } else {
+        displayMenuItems(menuCategory)
+      };
+    });
+  });
 };

@@ -85,6 +85,7 @@ const sectionCenter = document.querySelector('.section-center');
 const btnContainer = document.querySelector('.btn-container');
 window.addEventListener('DOMContentLoaded', ()=> {
   displayMenuItems(menu);
+  showDisplayBtns()
 });
 
 function displayMenuItems(menuItems) {
@@ -104,3 +105,14 @@ function displayMenuItems(menuItems) {
   }).join('');
   sectionCenter.innerHTML = displayMenu;
 };
+
+// make the btns showing 
+function showDisplayBtns() {
+  const categories = menu.reduce((values, item)=> {
+    if(!values.includes(item.category)) {
+      values.push(item.category);
+    };
+    return values;
+  },['all']);
+  console.log(categories);
+}
